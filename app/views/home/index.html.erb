@@ -1,0 +1,48 @@
+<div class="sky">
+  <div class="form-card">
+    <h1>🌤️ Weather Time Machine</h1>
+    <p class="subtitle">
+      Enter a place and a date range (max 15 days) to see temperatures.
+    </p>
+
+    <form id="weather-form">
+      <div class="form-group">
+        <label for="place-input">Place Name</label>
+        <input
+          type="text"
+          id="place-input"
+          placeholder="e.g., Berlin, 10115"
+          required
+        />
+        <small class="helper-text">Enter a valid place name or ZIP code.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="start-date">Start Date</label>
+        <input
+          type="date"
+          id="start-date"
+          max="<%= Date.current.to_s %>"
+          required
+        />
+        <small class="helper-text">Select the start date (today or past date).</small>
+      </div>
+
+      <div class="form-group">
+        <label for="end-date">End Date</label>
+        <input
+          type="date"
+          id="end-date"
+          max="<%= Date.current.to_s %>"
+          required
+        />
+        <small class="helper-text">Select the end date (must be within 15 days from start date).</small>
+      </div>
+
+      <button type="submit" id="submit-btn">Get Temperatures</button>
+    </form>
+
+    <div id="results" hidden></div>
+    <div id="error" class="error" hidden></div>
+  </div>
+</div>
